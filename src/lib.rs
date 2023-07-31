@@ -4,5 +4,6 @@
 
 //! ucan-fixture-generator
 
+pub mod capabilities;
 pub mod crypto;
 pub mod identities;
