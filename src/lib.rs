@@ -6,4 +6,5 @@
 
 pub mod capabilities;
 pub mod crypto;
+pub mod generators;
 pub mod identities;
