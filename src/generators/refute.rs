@@ -1,14 +1,9 @@
+use super::{ucan_to_assertions, UcanAssertions};
 use crate::{capabilities::EmailSemantics, identities::Identities};
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
-use serde_with::{base64::Base64, serde_as};
 use std::{collections::HashMap, rc::Rc};
-use ucan::{
-    builder::UcanBuilder,
-    capability::CapabilitySemantics,
-    ucan::{UcanHeader, UcanPayload},
-    Ucan,
-};
+use ucan::{builder::UcanBuilder, capability::CapabilitySemantics, Ucan};
 use ucan_key_support::ed25519::Ed25519KeyMaterial;
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -16,12 +11,12 @@ pub struct RefuteFixture {
     name: String,
     task: String,
     inputs: Inputs,
-    assertions: Assertions,
+    assertions: UcanAssertions,
     errors: Vec<String>,
 }
 
 impl RefuteFixture {
-    fn new(name: String, inputs: Inputs, assertions: Assertions, errors: Vec<String>) -> Self {
+    fn new(name: String, inputs: Inputs, assertions: UcanAssertions, errors: Vec<String>) -> Self {
         RefuteFixture {
             name,
             task: "refute".to_string(),
@@ -36,15 +31,6 @@ impl RefuteFixture {
 struct Inputs {
     token: String,
     proofs: HashMap<String, String>,
-}
-
-#[serde_as]
-#[derive(Debug, Serialize, Deserialize)]
-struct Assertions {
-    header: UcanHeader,
-    payload: UcanPayload,
-    #[serde_as(as = "Base64")]
-    signature: Vec<u8>,
 }
 
 pub async fn generate() -> Result<Vec<RefuteFixture>> {
@@ -82,25 +68,4 @@ async fn expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixtur
     let errors = vec!["expired".into()];
 
     RefuteFixture::new("UCAN has expired".to_string(), inputs, assertions, errors)
-}
-
-fn ucan_to_assertions(ucan: Ucan) -> Assertions {
-    Assertions {
-        header: UcanHeader {
-            alg: ucan.algorithm().into(),
-            typ: "JWT".into(),
-        },
-        payload: UcanPayload {
-            ucv: ucan.version().into(),
-            iss: ucan.issuer().into(),
-            aud: ucan.audience().into(),
-            exp: *ucan.expires_at(),
-            nbf: *ucan.not_before(),
-            nnc: ucan.nonce().clone(),
-            cap: ucan.capabilities().clone(),
-            fct: ucan.facts().clone(),
-            prf: ucan.proofs().clone(),
-        },
-        signature: ucan.signature().into(),
-    }
 }

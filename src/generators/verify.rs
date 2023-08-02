@@ -1,3 +1,4 @@
+use super::{ucan_to_assertions, UcanAssertions};
 use crate::{capabilities::EmailSemantics, identities::Identities};
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
@@ -16,11 +17,11 @@ pub struct VerifyFixture {
     name: String,
     task: String,
     inputs: Inputs,
-    assertions: Assertions,
+    assertions: UcanAssertions,
 }
 
 impl VerifyFixture {
-    fn new(name: String, inputs: Inputs, assertions: Assertions) -> Self {
+    fn new(name: String, inputs: Inputs, assertions: UcanAssertions) -> Self {
         VerifyFixture {
             name,
             task: "verify".to_string(),
@@ -38,7 +39,7 @@ struct Inputs {
 
 #[serde_as]
 #[derive(Debug, Serialize, Deserialize)]
-struct Assertions {
+pub struct Assertions {
     header: UcanHeader,
     payload: UcanPayload,
     #[serde_as(as = "Base64")]
@@ -49,8 +50,8 @@ pub async fn generate() -> Result<Vec<VerifyFixture>> {
     let identities = Rc::new(Identities::new().await);
     let mut fixtures: Vec<VerifyFixture> = vec![];
 
-    let fixture = not_expired(identities.clone()).await;
-    fixtures.push(fixture);
+    let not_expired_fixture = not_expired(identities.clone()).await;
+    fixtures.push(not_expired_fixture);
 
     Ok(fixtures)
 }
@@ -79,27 +80,4 @@ async fn not_expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> VerifyFi
     let assertions = ucan_to_assertions(ucan);
 
     VerifyFixture::new("UCAN has not expired".to_string(), inputs, assertions)
-}
-
-// Helpers
-
-fn ucan_to_assertions(ucan: Ucan) -> Assertions {
-    Assertions {
-        header: UcanHeader {
-            alg: ucan.algorithm().into(),
-            typ: "JWT".into(),
-        },
-        payload: UcanPayload {
-            ucv: ucan.version().into(),
-            iss: ucan.issuer().into(),
-            aud: ucan.audience().into(),
-            exp: *ucan.expires_at(),
-            nbf: *ucan.not_before(),
-            nnc: ucan.nonce().clone(),
-            cap: ucan.capabilities().clone(),
-            fct: ucan.facts().clone(),
-            prf: ucan.proofs().clone(),
-        },
-        signature: ucan.signature().into(),
-    }
 }
