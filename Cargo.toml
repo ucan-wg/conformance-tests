@@ -27,6 +27,7 @@ doc = false
 anyhow = "1.0"
 async-trait = "0.1"
 base64 = "0.21"
+cid = "0.10"
 did-key = "0.2"
 ed25519-zebra = "^3"
 rand = "~0.8"

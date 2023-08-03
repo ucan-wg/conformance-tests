@@ -1,9 +1,9 @@
-use super::{ucan_to_assertions, UcanAssertions};
-use crate::{capabilities::EmailSemantics, identities::Identities};
+use super::{ucan_to_assertions, UcanAssertions, UcanOptions};
+use crate::identities::Identities;
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, rc::Rc};
-use ucan::{builder::UcanBuilder, capability::CapabilitySemantics, Ucan};
+use ucan::{builder::Signable, Ucan};
 use ucan_key_support::ed25519::Ed25519KeyMaterial;
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -43,29 +43,46 @@ pub async fn generate() -> Result<Vec<RefuteFixture>> {
     Ok(fixtures)
 }
 
-async fn expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
-    let email_semantics = EmailSemantics {};
-    let send_email_as_alice = email_semantics
-        .parse("mailto:alice@email.com", "email/send", None)
-        .unwrap();
-
-    let ucan = UcanBuilder::default()
-        .issued_by(&identities.alice_key)
-        .for_audience(identities.bob_did.as_str())
-        .with_expiration(1)
-        .claiming_capability(&send_email_as_alice)
-        .build()
-        .unwrap()
-        .sign()
-        .await
-        .unwrap();
+async fn make_fixture(
+    name: String,
+    issuer: &Ed25519KeyMaterial,
+    audience: String,
+    options: UcanOptions,
+    proofs: HashMap<String, String>,
+    errors: Vec<String>,
+) -> RefuteFixture {
+    let signable = Signable {
+        issuer: &issuer.clone(),
+        audience: audience.clone(),
+        capabilities: options.capabilities,
+        expiration: options.expiration,
+        not_before: options.not_before,
+        facts: options.facts,
+        proofs: options.proofs,
+        add_nonce: options.add_nonce,
+    };
+    let ucan = signable.sign().await.unwrap();
 
     let inputs = Inputs {
         token: Ucan::encode(&ucan).unwrap(),
-        proofs: HashMap::new(),
+        proofs,
     };
     let assertions = ucan_to_assertions(ucan);
-    let errors = vec!["expired".into()];
 
-    RefuteFixture::new("UCAN has expired".to_string(), inputs, assertions, errors)
+    RefuteFixture::new(name, inputs, assertions, errors)
+}
+
+async fn expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
+    make_fixture(
+        String::from("UCAN has expired"),
+        &identities.alice_key,
+        identities.bob_did.clone(),
+        UcanOptions {
+            expiration: Some(1),
+            ..Default::default()
+        },
+        HashMap::new(),
+        vec!["expired".into()],
+    )
+    .await
 }

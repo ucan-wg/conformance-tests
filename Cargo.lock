@@ -2187,6 +2187,7 @@ dependencies = [
  "anyhow",
  "async-trait",
  "base64 0.21.2",
+ "cid",
  "did-key",
  "ed25519-zebra",
  "rand 0.8.5",
