@@ -1,5 +1,8 @@
-use super::{ucan_to_assertions, UcanAssertions, UcanOptions};
-use crate::identities::Identities;
+use super::UcanOptions;
+use crate::{
+    generators::assertions::{ucan_to_assertions, UcanAssertions},
+    identities::Identities,
+};
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, rc::Rc};
@@ -37,8 +40,10 @@ pub async fn generate() -> Result<Vec<RefuteFixture>> {
     let identities = Rc::new(Identities::new().await);
     let mut fixtures: Vec<RefuteFixture> = vec![];
 
-    let fixture = expired(identities.clone()).await;
-    fixtures.push(fixture);
+    let expired_fixture = expired(identities.clone()).await;
+    let missing_algorithm_fixture = missing_algorithm(identities.clone()).await;
+    fixtures.push(expired_fixture);
+    fixtures.push(missing_algorithm_fixture);
 
     Ok(fixtures)
 }
@@ -85,4 +90,23 @@ async fn expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixtur
         vec!["expired".into()],
     )
     .await
+}
+
+async fn missing_algorithm(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
+    let mut fixture = make_fixture(
+        String::from("UCAN is missing header algorithm field"),
+        &identities.alice_key,
+        identities.bob_did.clone(),
+        UcanOptions {
+            expiration: Some(9246211200),
+            ..Default::default()
+        },
+        HashMap::new(),
+        vec!["missingField".into()],
+    )
+    .await;
+
+    *fixture.assertions.header.alg_mut() = None;
+
+    fixture
 }

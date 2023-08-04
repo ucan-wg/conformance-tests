@@ -1,5 +1,8 @@
-use super::{make_proof, ucan_to_assertions, UcanAssertions, UcanOptions};
-use crate::identities::Identities;
+use super::{make_proof, UcanOptions};
+use crate::{
+    generators::assertions::{ucan_to_assertions, UcanAssertions},
+    identities::Identities,
+};
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
