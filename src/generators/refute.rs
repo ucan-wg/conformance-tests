@@ -1,10 +1,12 @@
-use super::UcanOptions;
-use crate::{
-    generators::assertions::{ucan_to_assertions, UcanAssertions},
-    identities::Identities,
+use super::{
+    assertions::{ucan_to_assertions, UcanAssertions},
+    mutate::{mutate_field, remove_field},
+    UcanOptions,
 };
+use crate::identities::Identities;
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
+use serde_json::json;
 use std::{collections::HashMap, rc::Rc};
 use ucan::{builder::Signable, Ucan};
 use ucan_key_support::ed25519::Ed25519KeyMaterial;
@@ -36,14 +38,22 @@ struct Inputs {
     proofs: HashMap<String, String>,
 }
 
+impl Inputs {
+    fn token_mut(&mut self) -> &mut String {
+        &mut self.token
+    }
+}
+
 pub async fn generate() -> Result<Vec<RefuteFixture>> {
     let identities = Rc::new(Identities::new().await);
     let mut fixtures: Vec<RefuteFixture> = vec![];
 
     let expired_fixture = expired(identities.clone()).await;
     let missing_algorithm_fixture = missing_algorithm(identities.clone()).await;
+    let wrong_type_fixture = wrong_type(identities.clone()).await;
     fixtures.push(expired_fixture);
     fixtures.push(missing_algorithm_fixture);
+    fixtures.push(wrong_type_fixture);
 
     Ok(fixtures)
 }
@@ -107,6 +117,38 @@ async fn missing_algorithm(identities: Rc<Identities<Ed25519KeyMaterial>>) -> Re
     .await;
 
     *fixture.assertions.header.alg_mut() = None;
+    *fixture.inputs.token_mut() = remove_field(
+        fixture.inputs.token.as_str(),
+        "header",
+        "alg",
+        identities.alice_key.clone(),
+    );
+
+    fixture
+}
+
+async fn wrong_type(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
+    let mut fixture = make_fixture(
+        String::from("UCAN type is not JWT"),
+        &identities.alice_key,
+        identities.bob_did.clone(),
+        UcanOptions {
+            expiration: Some(9246211200),
+            ..Default::default()
+        },
+        HashMap::new(),
+        vec!["incorrectType".into()],
+    )
+    .await;
+
+    *fixture.assertions.header.typ_mut() = None;
+    *fixture.inputs.token_mut() = mutate_field(
+        fixture.inputs.token.as_str(),
+        "header",
+        "typ",
+        json!("NOT_JWT"),
+        identities.alice_key.clone(),
+    );
 
     fixture
 }
