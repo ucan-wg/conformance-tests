@@ -57,16 +57,13 @@ const EMAIL_SEMANTICS: EmailSemantics = EmailSemantics {};
 
 pub async fn generate() -> Result<Vec<VerifyFixture>> {
     let identities = Rc::new(Identities::new().await);
-    let mut fixtures: Vec<VerifyFixture> = vec![];
 
-    let not_expired_fixture = not_expired(identities.clone()).await;
-    let active_fixture = active(identities.clone()).await;
-    let has_proof_fixture = has_proof(identities.clone()).await;
-    let caveats_equal_fixture = caveats_equal(identities.clone()).await;
-    fixtures.push(not_expired_fixture);
-    fixtures.push(active_fixture);
-    fixtures.push(has_proof_fixture);
-    fixtures.push(caveats_equal_fixture);
+    let fixtures: Vec<VerifyFixture> = vec![
+        not_expired(identities.clone()).await,
+        active(identities.clone()).await,
+        has_proof(identities.clone()).await,
+        caveats_equal(identities.clone()).await,
+    ];
 
     Ok(fixtures)
 }

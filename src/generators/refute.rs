@@ -44,16 +44,16 @@ impl Inputs {
     }
 }
 
+// GENERATE
+
 pub async fn generate() -> Result<Vec<RefuteFixture>> {
     let identities = Rc::new(Identities::new().await);
-    let mut fixtures: Vec<RefuteFixture> = vec![];
 
-    let expired_fixture = expired(identities.clone()).await;
-    let missing_algorithm_fixture = missing_algorithm(identities.clone()).await;
-    let wrong_type_fixture = wrong_type(identities.clone()).await;
-    fixtures.push(expired_fixture);
-    fixtures.push(missing_algorithm_fixture);
-    fixtures.push(wrong_type_fixture);
+    let fixtures: Vec<RefuteFixture> = vec![
+        expired(identities.clone()).await,
+        missing_algorithm(identities.clone()).await,
+        wrong_type(identities.clone()).await,
+    ];
 
     Ok(fixtures)
 }
@@ -87,6 +87,8 @@ async fn make_fixture(
     RefuteFixture::new(name, inputs, assertions, errors)
 }
 
+// TIME BOUNDS
+
 async fn expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
     make_fixture(
         String::from("UCAN has expired"),
@@ -101,6 +103,8 @@ async fn expired(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixtur
     )
     .await
 }
+
+// MISSING FIELDS
 
 async fn missing_algorithm(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
     let mut fixture = make_fixture(
@@ -126,6 +130,8 @@ async fn missing_algorithm(identities: Rc<Identities<Ed25519KeyMaterial>>) -> Re
 
     fixture
 }
+
+// INVALID FIELDS
 
 async fn wrong_type(identities: Rc<Identities<Ed25519KeyMaterial>>) -> RefuteFixture {
     let mut fixture = make_fixture(
