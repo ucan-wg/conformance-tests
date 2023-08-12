@@ -7,7 +7,6 @@ use ucan_key_support::ed25519::Ed25519KeyMaterial;
 pub mod assertions;
 pub mod mutate;
 pub mod refute;
-
 pub mod verify;
 
 #[derive(Debug)]
@@ -20,6 +19,7 @@ pub struct UcanOptions {
     add_nonce: bool,
 }
 
+#[allow(clippy::derivable_impls)]
 impl Default for UcanOptions {
     fn default() -> Self {
         UcanOptions {
