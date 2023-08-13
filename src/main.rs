@@ -4,23 +4,25 @@ use serde_json::Value;
 use std::fs;
 use ucan_fixture_generator::generators::{refute, verify};
 
-/// Main entry point.
+/// Main entry point
 #[tokio::main]
 async fn main() {
-    fs::create_dir_all("fixtures").expect("Could not create fixtures directory");
+    const UCV: &str = "0.10.0";
+
+    fs::create_dir_all(format!("fixtures/{}", UCV)).expect("Could not create fixtures directory");
 
     // Fixtures by task
     let verify_fixtures = verify::generate().await.unwrap();
     let refute_fixtures = refute::generate().await.unwrap();
 
     fs::write(
-        "fixtures/verify.json",
+        format!("fixtures/{}/verify.json", UCV),
         serde_json::to_string(&verify_fixtures).unwrap(),
     )
     .unwrap_or_else(|err| println!("{:?}", err));
 
     fs::write(
-        "fixtures/refute.json",
+        format!("fixtures/{}/refute.json", UCV),
         serde_json::to_string(&refute_fixtures).unwrap(),
     )
     .unwrap_or_else(|err| println!("{:?}", err));
@@ -39,7 +41,7 @@ async fn main() {
     }
 
     fs::write(
-        "fixtures/all.json",
+        format!("fixtures/{}/all.json", UCV),
         serde_json::to_string(&all_fixtures).unwrap(),
     )
     .unwrap_or_else(|err| println!("{:?}", err))
