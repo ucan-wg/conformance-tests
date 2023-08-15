@@ -135,7 +135,6 @@ async fn active(identities: Rc<Identities<Ed25519KeyMaterial>>) -> VerifyFixture
         identities.bob_did.clone(),
         UcanOptions {
             not_before: Some(1),
-            expiration: Some(9246211200),
             ..Default::default()
         },
         HashMap::new(),

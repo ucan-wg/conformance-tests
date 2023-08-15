@@ -41,6 +41,7 @@ pub struct UcanPayloadAssertions {
     pub iss: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aud: Option<String>,
+    #[serde(skip_serializing_if = "is_skip_expiration_marker")]
     pub exp: Option<u64>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub nbf: Option<u64>,
@@ -67,9 +68,37 @@ impl UcanPayloadAssertions {
         &mut self.aud
     }
 
+    pub fn nbf_mut(&mut self) -> &mut Option<u64> {
+        &mut self.nbf
+    }
+
+    pub fn exp_mut(&mut self) -> &mut Option<u64> {
+        &mut self.exp
+    }
+
+    pub fn nnc_mut(&mut self) -> &mut Option<String> {
+        &mut self.nnc
+    }
+
+    pub fn fct_mut(&mut self) -> &mut Option<FactsMap> {
+        &mut self.fct
+    }
+
     pub fn cap_mut(&mut self) -> &mut Option<Capabilities> {
         &mut self.cap
     }
+
+    pub fn prf_mut(&mut self) -> &mut Option<Vec<String>> {
+        &mut self.prf
+    }
+}
+
+// Hack to mark when we should skip serializing the exp
+// field in the UCAN assertions. Note that this is a valid
+// exp value, but we can't use None to skip exp because we want
+// to serialize it as null. So we eighty-six it instead.
+fn is_skip_expiration_marker(val: &Option<u64>) -> bool {
+    *val == Some(86)
 }
 
 pub fn ucan_to_assertions(ucan: Ucan) -> UcanAssertions {
