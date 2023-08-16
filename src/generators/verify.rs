@@ -7,13 +7,11 @@ use crate::{
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
-use serde_with::{base64::Base64, serde_as};
 use std::collections::BTreeMap;
 use std::{collections::HashMap, default::Default, rc::Rc};
 use ucan::{
     builder::Signable,
     capability::{Capability, CapabilitySemantics},
-    ucan::{UcanHeader, UcanPayload},
     Ucan,
 };
 use ucan_key_support::ed25519::Ed25519KeyMaterial;
@@ -41,15 +39,6 @@ impl VerifyFixture {
 struct Inputs {
     token: String,
     proofs: HashMap<String, String>,
-}
-
-#[serde_as]
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Assertions {
-    header: UcanHeader,
-    payload: UcanPayload,
-    #[serde_as(as = "Base64")]
-    signature: Vec<u8>,
 }
 
 const EMAIL_SEMANTICS: EmailSemantics = EmailSemantics {};
