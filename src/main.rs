@@ -2,7 +2,7 @@
 
 use serde_json::Value;
 use std::fs;
-use ucan_fixture_generator::generators::{build, refute, verify};
+use ucan_fixture_generator::generators::{build, refute, to_cid, verify};
 
 /// Main entry point
 #[tokio::main]
@@ -15,6 +15,7 @@ async fn main() {
     let verify_fixtures = verify::generate().await.unwrap();
     let refute_fixtures = refute::generate().await.unwrap();
     let build_fixtures = build::generate().await.unwrap();
+    let to_cid_fixtures = to_cid::generate().await.unwrap();
 
     fs::write(
         format!("fixtures/{}/verify.json", UCV),
@@ -34,6 +35,12 @@ async fn main() {
     )
     .unwrap_or_else(|err| println!("{:?}", err));
 
+    fs::write(
+        format!("fixtures/{}/cid.json", UCV),
+        serde_json::to_string(&to_cid_fixtures).unwrap(),
+    )
+    .unwrap_or_else(|err| println!("{:?}", err));
+
     // All fixtures
     let mut all_fixtures: Vec<Value> = vec![];
 
@@ -48,6 +55,11 @@ async fn main() {
     }
 
     for fixture in build_fixtures {
+        let value = serde_json::to_value(&fixture).unwrap();
+        all_fixtures.push(value);
+    }
+
+    for fixture in to_cid_fixtures {
         let value = serde_json::to_value(&fixture).unwrap();
         all_fixtures.push(value);
     }

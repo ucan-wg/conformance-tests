@@ -8,6 +8,7 @@ pub mod assertions;
 pub mod build;
 pub mod mutate;
 pub mod refute;
+pub mod to_cid;
 pub mod verify;
 
 #[derive(Debug)]
