@@ -1,0 +1,97 @@
+[
+  {
+    "name": "UCAN has an expiration",
+    "task": "build",
+    "inputs": {
+      "version": "0.10.0",
+      "issuer_base64_key": "U+bzp2GaFQHso587iSFWPSeCzbSfn/CbNHEz7ilKRZ1UQMmMS7qq4UhTzKn3X9Nj/4xgrwa+UqhMOeo4Ki8JUw==",
+      "signature_scheme": "Ed25519",
+      "audience": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "expiration": 9246211200,
+      "capabilities": {}
+    },
+    "outputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6OTI0NjIxMTIwMCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.pkJxQke-FDVB1Eg_7Jh2socNBKgo6_0OF1XXRfRMazmpXBG37tScYGAzJKB2Z4RFvSBpbBu29Sozrv4GQLFrDg"
+    }
+  },
+  {
+    "name": "UCAN has a not before",
+    "task": "build",
+    "inputs": {
+      "version": "0.10.0",
+      "issuer_base64_key": "U+bzp2GaFQHso587iSFWPSeCzbSfn/CbNHEz7ilKRZ1UQMmMS7qq4UhTzKn3X9Nj/4xgrwa+UqhMOeo4Ki8JUw==",
+      "signature_scheme": "Ed25519",
+      "audience": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "not_before": 1,
+      "expiration": null,
+      "capabilities": {}
+    },
+    "outputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJuYmYiOjEsInVjdiI6IjAuMTAuMCJ9.-yaM1x8v4jIvi5ldLsjN3unAJiaFx2D1gl4z_Ct8OCcS_afEW-q8phwyOVu3DKFP8dGoEvlMQMhTfPsiUOCsAQ"
+    }
+  },
+  {
+    "name": "UCAN delegates send email capability",
+    "task": "build",
+    "inputs": {
+      "version": "0.10.0",
+      "issuer_base64_key": "U+bzp2GaFQHso587iSFWPSeCzbSfn/CbNHEz7ilKRZ1UQMmMS7qq4UhTzKn3X9Nj/4xgrwa+UqhMOeo4Ki8JUw==",
+      "signature_scheme": "Ed25519",
+      "audience": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "expiration": null,
+      "capabilities": {
+        "mailto:alice@email.com": {
+          "email/send": [
+            {}
+          ]
+        }
+      }
+    },
+    "outputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.mWmgl4OyAl_OKCB0tYBaxbw_0MkR2jM0W_G6eH8OW39IuB9y9ArbBcCSnG7r0WdeZaJBh6Qf4MxLiuSKM3ZFCA"
+    }
+  },
+  {
+    "name": "UCAN delegates send email capability with newsletter template caveat",
+    "task": "build",
+    "inputs": {
+      "version": "0.10.0",
+      "issuer_base64_key": "U+bzp2GaFQHso587iSFWPSeCzbSfn/CbNHEz7ilKRZ1UQMmMS7qq4UhTzKn3X9Nj/4xgrwa+UqhMOeo4Ki8JUw==",
+      "signature_scheme": "Ed25519",
+      "audience": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "expiration": null,
+      "capabilities": {
+        "mailto:alice@email.com": {
+          "email/send": [
+            {
+              "templates": [
+                "newsletter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "outputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7InRlbXBsYXRlcyI6WyJuZXdzbGV0dGVyIl19XX19LCJleHAiOm51bGwsImlzcyI6ImRpZDprZXk6ejZNa2s4OWJDM0pyVnFLaWU3MVlFY2M1TTFTTVZ4dUNnTng2ekxaOFNZSnN4QUxpIiwidWN2IjoiMC4xMC4wIn0.f4QEc5oN43eUKxUfYuQ9zrjz3A6jiW6XPQCALv9RQ4QWnt4LvNy53gX3Z53lHc_-Ei8ykn4YUSGM3qL5AtdSBA"
+    }
+  },
+  {
+    "name": "UCAN has a fact with a challenge",
+    "task": "build",
+    "inputs": {
+      "version": "0.10.0",
+      "issuer_base64_key": "U+bzp2GaFQHso587iSFWPSeCzbSfn/CbNHEz7ilKRZ1UQMmMS7qq4UhTzKn3X9Nj/4xgrwa+UqhMOeo4Ki8JUw==",
+      "signature_scheme": "Ed25519",
+      "audience": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "expiration": null,
+      "facts": {
+        "challenge": "abcdef"
+      },
+      "capabilities": {}
+    },
+    "outputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiZmN0Ijp7ImNoYWxsZW5nZSI6ImFiY2RlZiJ9LCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.uhk0MI1CyB3nEu4RxZqoOq3-BucWT86UXtP_th9ffa_uosmj6Aln3AUELkqJDsgr710UguNKQQzJVzmIdPoLCg"
+    }
+  }
+]

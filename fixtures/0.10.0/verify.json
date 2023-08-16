@@ -1,0 +1,463 @@
+[
+  {
+    "name": "UCAN has not expired",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6OTI0NjIxMTIwMCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.pkJxQke-FDVB1Eg_7Jh2socNBKgo6_0OF1XXRfRMazmpXBG37tScYGAzJKB2Z4RFvSBpbBu29Sozrv4GQLFrDg",
+      "proofs": {}
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+        "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "exp": 9246211200,
+        "cap": {}
+      },
+      "signature": "pkJxQke-FDVB1Eg_7Jh2socNBKgo6_0OF1XXRfRMazmpXBG37tScYGAzJKB2Z4RFvSBpbBu29Sozrv4GQLFrDg"
+    }
+  },
+  {
+    "name": "UCAN is ready to be used",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJuYmYiOjEsInVjdiI6IjAuMTAuMCJ9.-yaM1x8v4jIvi5ldLsjN3unAJiaFx2D1gl4z_Ct8OCcS_afEW-q8phwyOVu3DKFP8dGoEvlMQMhTfPsiUOCsAQ",
+      "proofs": {}
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+        "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "exp": null,
+        "nbf": 1,
+        "cap": {}
+      },
+      "signature": "-yaM1x8v4jIvi5ldLsjN3unAJiaFx2D1gl4z_Ct8OCcS_afEW-q8phwyOVu3DKFP8dGoEvlMQMhTfPsiUOCsAQ"
+    }
+  },
+  {
+    "name": "UCAN has same time bounds as proof",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6e30sImV4cCI6OTI0NjIxMTIwMCwiaXNzIjoiZGlkOmtleTp6Nk1rZmZEWkNrQ1RXcmVnODg2OGZHMUZHRm9nY0pqNVg2UFk5M3BQY1dEbjlib2IiLCJuYmYiOjEsInByZiI6WyJiYWZrcmVpZTNiZndyMnB4dHpwaHpwc3BiM3BsdmRyaDNvYnE1eWl5aWJmdXVpcWoybTNrY3JyZXhwdSJdLCJ1Y3YiOiIwLjEwLjAifQ.C7ceqIwzJYqC5TQf8PRXjMCYri1JxpioZFU0LIYpM1fP_Xn7Eij9qcRd5WUXvKmUAGmn_gmv8rolXbe4n3UAAA",
+      "proofs": {
+        "bafkreie3bfwr2pxtzphzpspb3plvdrh3obq5yiyibfuuiqj2m3kcrrexpu": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6OTI0NjIxMTIwMCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJuYmYiOjEsInVjdiI6IjAuMTAuMCJ9.qvC6-4agkAxd72ZKNardHy8YHpKGAhz9sbNlWMys0LBoccifGCl-9Yz3bpy4SuosAbWy-W2tc5MGzFCNRmLpAw"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": 9246211200,
+        "nbf": 1,
+        "cap": {},
+        "prf": [
+          "bafkreie3bfwr2pxtzphzpspb3plvdrh3obq5yiyibfuuiqj2m3kcrrexpu"
+        ]
+      },
+      "signature": "C7ceqIwzJYqC5TQf8PRXjMCYri1JxpioZFU0LIYpM1fP_Xn7Eij9qcRd5WUXvKmUAGmn_gmv8rolXbe4n3UAAA"
+    }
+  },
+  {
+    "name": "UCAN expires before proof",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6e30sImV4cCI6OTI0NjIxMTIwMCwiaXNzIjoiZGlkOmtleTp6Nk1rZmZEWkNrQ1RXcmVnODg2OGZHMUZHRm9nY0pqNVg2UFk5M3BQY1dEbjlib2IiLCJwcmYiOlsiYmFma3JlaWN6Nnl2czRlcHplbXprNmMyb3E0d3BvamVvNWh1c3diaDd1cGtzNDVpa25kYnllcmdsbmEiXSwidWN2IjoiMC4xMC4wIn0.iWzUN38aE9Kid_f3P8ahMPg7oKHymAVqdx0Lr1XfZqdBPB33T0uBBuGQiMpMPmx_55ReWAulyxZzFgTqgBDKDw",
+      "proofs": {
+        "bafkreicz6yvs4epzemzk6c2oq4wpojeo5huswbh7upks45ikndbyerglna": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6MTQwNjkxNDIwMDAsImlzcyI6ImRpZDprZXk6ejZNa2s4OWJDM0pyVnFLaWU3MVlFY2M1TTFTTVZ4dUNnTng2ekxaOFNZSnN4QUxpIiwidWN2IjoiMC4xMC4wIn0.qtp60plAo81TRm56PMdlkOwUZT2uPFWzWLtjZmti6_KLULOZXQYN6h9ihXz9MNX3HflUIZoBsWJnPN_8--y4AA"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": 9246211200,
+        "cap": {},
+        "prf": [
+          "bafkreicz6yvs4epzemzk6c2oq4wpojeo5huswbh7upks45ikndbyerglna"
+        ]
+      },
+      "signature": "iWzUN38aE9Kid_f3P8ahMPg7oKHymAVqdx0Lr1XfZqdBPB33T0uBBuGQiMpMPmx_55ReWAulyxZzFgTqgBDKDw"
+    }
+  },
+  {
+    "name": "UCAN active after proof",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1rZmZEWkNrQ1RXcmVnODg2OGZHMUZHRm9nY0pqNVg2UFk5M3BQY1dEbjlib2IiLCJuYmYiOjIsInByZiI6WyJiYWZrcmVpZ3hpeTdwdndtZmxhaDZjN3picW12a3JpaW02amlodnFwaDIzb216M3V3ZGphN3E0ZnEyaSJdLCJ1Y3YiOiIwLjEwLjAifQ.X9vegej9T07LaA5wPtCj4WcV_vjy2KgkvKYTIT4IXoFvtZwrcUj6ABOG54LpWlXVto-Y09zIi2W3Miwzu10CAw",
+      "proofs": {
+        "bafkreigxiy7pvwmflah6c7zbqmvkriim6jihvqph23omz3uwdja7q4fq2i": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJuYmYiOjEsInVjdiI6IjAuMTAuMCJ9.-yaM1x8v4jIvi5ldLsjN3unAJiaFx2D1gl4z_Ct8OCcS_afEW-q8phwyOVu3DKFP8dGoEvlMQMhTfPsiUOCsAQ"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "nbf": 2,
+        "cap": {},
+        "prf": [
+          "bafkreigxiy7pvwmflah6c7zbqmvkriim6jihvqph23omz3uwdja7q4fq2i"
+        ]
+      },
+      "signature": "X9vegej9T07LaA5wPtCj4WcV_vjy2KgkvKYTIT4IXoFvtZwrcUj6ABOG54LpWlXVto-Y09zIi2W3Miwzu10CAw"
+    }
+  },
+  {
+    "name": "UCAN has a well-formed capability",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.mWmgl4OyAl_OKCB0tYBaxbw_0MkR2jM0W_G6eH8OW39IuB9y9ArbBcCSnG7r0WdeZaJBh6Qf4MxLiuSKM3ZFCA",
+      "proofs": {}
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+        "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "exp": null,
+        "cap": {
+          "mailto:alice@email.com": {
+            "email/send": [
+              {}
+            ]
+          }
+        }
+      },
+      "signature": "mWmgl4OyAl_OKCB0tYBaxbw_0MkR2jM0W_G6eH8OW39IuB9y9ArbBcCSnG7r0WdeZaJBh6Qf4MxLiuSKM3ZFCA"
+    }
+  },
+  {
+    "name": "UCAN has a well-formed capability with a caveat",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7InRlbXBsYXRlcyI6WyJtYXJrZXRpbmciXX1dfX0sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.NWWHxBFHSW68IvbeB2utg5G67tSvEN9uHGxHOC5nzzoIdjpz39q5qI7CNuXlPLQDGvuUkZSjIAUzKtU3-HvaCg",
+      "proofs": {}
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+        "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "exp": null,
+        "cap": {
+          "mailto:alice@email.com": {
+            "email/send": [
+              {
+                "templates": [
+                  "marketing"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "signature": "NWWHxBFHSW68IvbeB2utg5G67tSvEN9uHGxHOC5nzzoIdjpz39q5qI7CNuXlPLQDGvuUkZSjIAUzKtU3-HvaCg"
+    }
+  },
+  {
+    "name": "UCAN has multiple well-formed capabilities",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19LCJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbeyJ0ZW1wbGF0ZXMiOlsibWFya2V0aW5nIl19XX19LCJleHAiOm51bGwsImlzcyI6ImRpZDprZXk6ejZNa2s4OWJDM0pyVnFLaWU3MVlFY2M1TTFTTVZ4dUNnTng2ekxaOFNZSnN4QUxpIiwidWN2IjoiMC4xMC4wIn0.f-xu84oUX45_2ncrkTjVX1zmJSBdsqrE21DxOUf-9eV3SjxRPmVpshE1bcTGqyjdxsaST0hdr3CXkBGKLD5wBw",
+      "proofs": {}
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+        "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "exp": null,
+        "cap": {
+          "mailto:alice@email.com": {
+            "email/send": [
+              {}
+            ]
+          },
+          "mailto:marketing@email.com": {
+            "email/send": [
+              {
+                "templates": [
+                  "marketing"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "signature": "f-xu84oUX45_2ncrkTjVX1zmJSBdsqrE21DxOUf-9eV3SjxRPmVpshE1bcTGqyjdxsaST0hdr3CXkBGKLD5wBw"
+    }
+  },
+  {
+    "name": "UCAN issuer matches proof audience",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1rZmZEWkNrQ1RXcmVnODg2OGZHMUZHRm9nY0pqNVg2UFk5M3BQY1dEbjlib2IiLCJwcmYiOlsiYmFma3JlaWJ2djQzenQ1ZGZ6d3I1ZWptczNvZWI1cmthenVmemt2cXM2djNpend3bGo2NGptcmNoY2kiXSwidWN2IjoiMC4xMC4wIn0.0BPu7MCETzLUwNqJdmw-D0CTQcXOrXaxJrRr-ONV0LG7e_P5ZkH6K8Et6k6lRp5JL7VhrnD2W1bT6lD2PbC_Cw",
+      "proofs": {
+        "bafkreibvv43zt5dfzwr5ejms3oeb5rkazufzkvqs6v3izwwlj64jmrchci": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "cap": {},
+        "prf": [
+          "bafkreibvv43zt5dfzwr5ejms3oeb5rkazufzkvqs6v3izwwlj64jmrchci"
+        ]
+      },
+      "signature": "0BPu7MCETzLUwNqJdmw-D0CTQcXOrXaxJrRr-ONV0LG7e_P5ZkH6K8Et6k6lRp5JL7VhrnD2W1bT6lD2PbC_Cw"
+    }
+  },
+  {
+    "name": "UCAN has a delegated capability",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsInByZiI6WyJiYWZrcmVpYnZtaTc2NGNtdGFvNGsybWUybGtzYmY3NGRqcXBscWp3cWFsYWhkNHhmbnR5MzNycnBnbSJdLCJ1Y3YiOiIwLjEwLjAifQ.fwWnOgRSYryzvkvLyqYQZozrzKLIBfW4uGHKG6hR8Dygj1OOrDrcVXY88N7UQmj6O4ETXsrF99om5NK3QBB7Cw",
+      "proofs": {
+        "bafkreibvmi764cmtao4k2me2lksbf74djqplqjwqalahd4xfnty33rrpgm": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.mWmgl4OyAl_OKCB0tYBaxbw_0MkR2jM0W_G6eH8OW39IuB9y9ArbBcCSnG7r0WdeZaJBh6Qf4MxLiuSKM3ZFCA"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "cap": {
+          "mailto:alice@email.com": {
+            "email/send": [
+              {}
+            ]
+          }
+        },
+        "prf": [
+          "bafkreibvmi764cmtao4k2me2lksbf74djqplqjwqalahd4xfnty33rrpgm"
+        ]
+      },
+      "signature": "fwWnOgRSYryzvkvLyqYQZozrzKLIBfW4uGHKG6hR8Dygj1OOrDrcVXY88N7UQmj6O4ETXsrF99om5NK3QBB7Cw"
+    }
+  },
+  {
+    "name": "UCAN merges delegated capabilities",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19LCJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbe31dfX0sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1rZmZEWkNrQ1RXcmVnODg2OGZHMUZHRm9nY0pqNVg2UFk5M3BQY1dEbjlib2IiLCJwcmYiOlsiYmFma3JlaWJ2bWk3NjRjbXRhbzRrMm1lMmxrc2JmNzRkanFwbHFqd3FhbGFoZDR4Zm50eTMzcnJwZ20iLCJiYWZrcmVpYnNjaGNsbGRvdGVlbWM2enVkNHA1aXhoM2p5cWN0ZG9kNmJnMmdnZW8zb2drd3lyNHFubSJdLCJ1Y3YiOiIwLjEwLjAifQ.2C9kEs6nJmfabHn4iarDAfAbFQ70jwMlM_S76ky7O5ia8s9SYBpCDd9xEWu_9aHpLg34PnpTxOx8GqcWdm6CAA",
+      "proofs": {
+        "bafkreibvmi764cmtao4k2me2lksbf74djqplqjwqalahd4xfnty33rrpgm": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.mWmgl4OyAl_OKCB0tYBaxbw_0MkR2jM0W_G6eH8OW39IuB9y9ArbBcCSnG7r0WdeZaJBh6Qf4MxLiuSKM3ZFCA",
+        "bafkreibschclldoteemc6zud4p5ixh3jyqctdod6bg2ggeo3ogkwyr4qnm": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbe31dfX0sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.7KyzLK-9VeArJJaVwy3UMlR0I_u0J_Wpq0dQmVm45KWMEW8_pxFzLSUSKWIU-nFvcS4ehGLOOTEhuq4S8eTCDg"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "cap": {
+          "mailto:alice@email.com": {
+            "email/send": [
+              {}
+            ]
+          },
+          "mailto:marketing@email.com": {
+            "email/send": [
+              {}
+            ]
+          }
+        },
+        "prf": [
+          "bafkreibvmi764cmtao4k2me2lksbf74djqplqjwqalahd4xfnty33rrpgm",
+          "bafkreibschclldoteemc6zud4p5ixh3jyqctdod6bg2ggeo3ogkwyr4qnm"
+        ]
+      },
+      "signature": "2C9kEs6nJmfabHn4iarDAfAbFQ70jwMlM_S76ky7O5ia8s9SYBpCDd9xEWu_9aHpLg34PnpTxOx8GqcWdm6CAA"
+    }
+  },
+  {
+    "name": "UCAN capability caveats equal to proof caveats",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7InRlbXBsYXRlcyI6WyJuZXdzbGV0dGVyIl19XX19LCJleHAiOm51bGwsImlzcyI6ImRpZDprZXk6ejZNa2ZmRFpDa0NUV3JlZzg4NjhmRzFGR0ZvZ2NKajVYNlBZOTNwUGNXRG45Ym9iIiwicHJmIjpbImJhZmtyZWloY2ZhcGE2bDMyd256dWthemxpb2FzcHR5MzY1dWh2ZXgzNm9zdGN3amNqN2JyZHZ1eWZxIl0sInVjdiI6IjAuMTAuMCJ9._kh7_uU71DHQBksna_eak-hOPjXfiKQsQgs7Uuv00VNe81qZj9bOcqHSlfVbnH3Gd7K7E86Kftvl-VYEn7NTDw",
+      "proofs": {
+        "bafkreihcfapa6l32wnzukazlioaspty365uhvex36ostcwjcj7brdvuyfq": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7InRlbXBsYXRlcyI6WyJuZXdzbGV0dGVyIl19XX19LCJleHAiOm51bGwsImlzcyI6ImRpZDprZXk6ejZNa2s4OWJDM0pyVnFLaWU3MVlFY2M1TTFTTVZ4dUNnTng2ekxaOFNZSnN4QUxpIiwidWN2IjoiMC4xMC4wIn0.f4QEc5oN43eUKxUfYuQ9zrjz3A6jiW6XPQCALv9RQ4QWnt4LvNy53gX3Z53lHc_-Ei8ykn4YUSGM3qL5AtdSBA"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "cap": {
+          "mailto:alice@email.com": {
+            "email/send": [
+              {
+                "templates": [
+                  "newsletter"
+                ]
+              }
+            ]
+          }
+        },
+        "prf": [
+          "bafkreihcfapa6l32wnzukazlioaspty365uhvex36ostcwjcj7brdvuyfq"
+        ]
+      },
+      "signature": "_kh7_uU71DHQBksna_eak-hOPjXfiKQsQgs7Uuv00VNe81qZj9bOcqHSlfVbnH3Gd7K7E86Kftvl-VYEn7NTDw"
+    }
+  },
+  {
+    "name": "UCAN capability attenuates existing caveats",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6eyJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbeyJ0ZW1wbGF0ZXMiOlsibmV3c2xldHRlciJdfV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsInByZiI6WyJiYWZrcmVpZGJ6emRucGwyNHI3dHRsZnRrdGFwcGR2YTVubW5hNXdseHg1aXZxY2NvcmN5am82eGFxdSJdLCJ1Y3YiOiIwLjEwLjAifQ.l3qeyfVGZRpDCZRMVU9MT2NZxo-4f6sTmEjbGqsg5t8H57olEbMx5nAYFa1x5XBL1Mfo-fj_Ase5r7LppIUGCw",
+      "proofs": {
+        "bafkreidbzzdnpl24r7ttlftktappdva5nmna5wlxx5ivqccorcyjo6xaqu": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbeyJ0ZW1wbGF0ZXMiOlsibmV3c2xldHRlciIsIm1hcmtldGluZyJdfV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.I2bU54PhYvKbctQkBrE0YFi1M9bLacUT_Zz7w6QgJSaZ7I2O7F3I3EBr8T9J3BwqTyrVjJwe05mHmBg0GR-QAQ"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "cap": {
+          "mailto:marketing@email.com": {
+            "email/send": [
+              {
+                "templates": [
+                  "newsletter"
+                ]
+              }
+            ]
+          }
+        },
+        "prf": [
+          "bafkreidbzzdnpl24r7ttlftktappdva5nmna5wlxx5ivqccorcyjo6xaqu"
+        ]
+      },
+      "signature": "l3qeyfVGZRpDCZRMVU9MT2NZxo-4f6sTmEjbGqsg5t8H57olEbMx5nAYFa1x5XBL1Mfo-fj_Ase5r7LppIUGCw"
+    }
+  },
+  {
+    "name": "UCAN capability attenuates from no caveats",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6eyJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbeyJ0ZW1wbGF0ZXMiOlsibmV3c2xldHRlciJdfV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsInByZiI6WyJiYWZrcmVpYnNjaGNsbGRvdGVlbWM2enVkNHA1aXhoM2p5cWN0ZG9kNmJnMmdnZW8zb2drd3lyNHFubSJdLCJ1Y3YiOiIwLjEwLjAifQ.qEip9gJLndvsRXIhi0zx4cn73DxteX5J3cpTAX5-ufZHgcHQF76nPZzRUCtGEZ34xQHNcJVfUv4kWWuikwyNAg",
+      "proofs": {
+        "bafkreibschclldoteemc6zud4p5ixh3jyqctdod6bg2ggeo3ogkwyr4qnm": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86bWFya2V0aW5nQGVtYWlsLmNvbSI6eyJlbWFpbC9zZW5kIjpbe31dfX0sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.7KyzLK-9VeArJJaVwy3UMlR0I_u0J_Wpq0dQmVm45KWMEW8_pxFzLSUSKWIU-nFvcS4ehGLOOTEhuq4S8eTCDg"
+      }
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+        "exp": null,
+        "cap": {
+          "mailto:marketing@email.com": {
+            "email/send": [
+              {
+                "templates": [
+                  "newsletter"
+                ]
+              }
+            ]
+          }
+        },
+        "prf": [
+          "bafkreibschclldoteemc6zud4p5ixh3jyqctdod6bg2ggeo3ogkwyr4qnm"
+        ]
+      },
+      "signature": "qEip9gJLndvsRXIhi0zx4cn73DxteX5J3cpTAX5-ufZHgcHQF76nPZzRUCtGEZ34xQHNcJVfUv4kWWuikwyNAg"
+    }
+  },
+  {
+    "name": "UCAN has a fact",
+    "task": "verify",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiZmN0Ijp7ImNoYWxsZW5nZSI6ImFiY2RlZiJ9LCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.uhk0MI1CyB3nEu4RxZqoOq3-BucWT86UXtP_th9ffa_uosmj6Aln3AUELkqJDsgr710UguNKQQzJVzmIdPoLCg",
+      "proofs": {}
+    },
+    "assertions": {
+      "header": {
+        "alg": "EdDSA",
+        "typ": "JWT"
+      },
+      "payload": {
+        "ucv": "0.10.0",
+        "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+        "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+        "exp": null,
+        "cap": {},
+        "fct": {
+          "challenge": "abcdef"
+        }
+      },
+      "signature": "uhk0MI1CyB3nEu4RxZqoOq3-BucWT86UXtP_th9ffa_uosmj6Aln3AUELkqJDsgr710UguNKQQzJVzmIdPoLCg"
+    }
+  }
+]
