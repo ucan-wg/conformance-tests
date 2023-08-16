@@ -5,6 +5,7 @@ use ucan::{builder::Signable, capability::Capability, Ucan};
 use ucan_key_support::ed25519::Ed25519KeyMaterial;
 
 pub mod assertions;
+pub mod build;
 pub mod mutate;
 pub mod refute;
 pub mod verify;
