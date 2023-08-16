@@ -1,1 +1,24 @@
-[{"name":"Compute CID for token using SHA2-256 hasher","task":"toCID","inputs":{"token":"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA","hasher":"SHA2-256"},"outputs":{"cid":"bafkreibvv43zt5dfzwr5ejms3oeb5rkazufzkvqs6v3izwwlj64jmrchci"}},{"name":"Compute CID for token using BLAKE3-256 hasher","task":"toCID","inputs":{"token":"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA","hasher":"BLAKE3-256"},"outputs":{"cid":"bafkr4icyq2ikdjxba7bytuxjjgxfhouzdbwutrqio77cb5logrg7osnsli"}}]
+[
+  {
+    "name": "Compute CID for token using SHA2-256 hasher",
+    "task": "toCID",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA",
+      "hasher": "SHA2-256"
+    },
+    "outputs": {
+      "cid": "bafkreibvv43zt5dfzwr5ejms3oeb5rkazufzkvqs6v3izwwlj64jmrchci"
+    }
+  },
+  {
+    "name": "Compute CID for token using BLAKE3-256 hasher",
+    "task": "toCID",
+    "inputs": {
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA",
+      "hasher": "BLAKE3-256"
+    },
+    "outputs": {
+      "cid": "bafkr4icyq2ikdjxba7bytuxjjgxfhouzdbwutrqio77cb5logrg7osnsli"
+    }
+  }
+]
