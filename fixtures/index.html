@@ -1,1 +1,178 @@
-<h1>UCAN Fixtures</h1>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>UCAN Conformance Tests</title>
+    <link rel="stylesheet" href="tufte.css" type="text/css">
+</head>
+
+<body>
+    <article>
+
+        <section>
+            <h1>UCAN Conformance Tests</h1>
+            <p>
+                This page indexes and describes fixtures for testing conformance with UCAN specifications.
+            </p>
+            <p>
+                User-Controlled Authorization Network (UCAN) is a trustless, secure, local-first, user-originated
+                authorization
+                and revocation scheme. Please see the
+                <a href="https://github.com/ucan-wg">UCAN working group</a>
+                and the
+                <a href="https://ucan.xyz">UCAN community site</a>
+                for more details.
+            </p>
+        </section>
+        <section>
+            <h2>Fixture Index</h2>
+            <p>
+                Fixtures are organized by the task an implementation should perform.
+            </p>
+            <p>
+                All includes the complete set of fixtues. Each
+                fixture includes a <code>task</code> field to differentiate them in the All collection.
+            </p>
+            <h3>0.10.0</h3>
+            <ul>
+                <li>Verify: <a href="test/test.json">https://ucan-wg.github.io/conformance-tests/test/test.json</a></li>
+                <li>Refute: <a href="test/test.json">https://ucan-wg.github.io/conformance-tests/test/test.json</a></li>
+                <li>Build: <a href="test/test.json">https://ucan-wg.github.io/conformance-tests/test/test.json</a></li>
+                <li>To CID: <a href="test/test.json">https://ucan-wg.github.io/conformance-tests/test/test.json</a></li>
+                <li>All: <a href="test/test.json">https://ucan-wg.github.io/conformance-tests/test/test.json</a></li>
+            </ul>
+        </section>
+        <section>
+
+            <h2>Fixture Design</h2>
+            <h3>Verify</h3>
+            <p>
+                Verify fixtures request an implementation check a token and associated proof map.
+            </p>
+            <pre><code>{
+  "name": "UCAN has a delegated capability",
+  "task": "verify",
+  "inputs": {
+    "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWt0YWZaVFJFakprdlY1bWZKeGNMcE5Cb1ZQd0RMaFR1TWc5bmc3ZFk0ek1BTCIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsInByZiI6WyJiYWZrcmVpYnZtaTc2NGNtdGFvNGsybWUybGtzYmY3NGRqcXBscWp3cWFsYWhkNHhmbnR5MzNycnBnbSJdLCJ1Y3YiOiIwLjEwLjAifQ.fwWnOgRSYryzvkvLyqYQZozrzKLIBfW4uGHKG6hR8Dygj1OOrDrcVXY88N7UQmj6O4ETXsrF99om5NK3QBB7Cw",
+    "proofs": {
+      "bafkreibvmi764cmtao4k2me2lksbf74djqplqjwqalahd4xfnty33rrpgm": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6eyJtYWlsdG86YWxpY2VAZW1haWwuY29tIjp7ImVtYWlsL3NlbmQiOlt7fV19fSwiZXhwIjpudWxsLCJpc3MiOiJkaWQ6a2V5Ono2TWtrODliQzNKclZxS2llNzFZRWNjNU0xU01WeHVDZ054NnpMWjhTWUpzeEFMaSIsInVjdiI6IjAuMTAuMCJ9.mWmgl4OyAl_OKCB0tYBaxbw_0MkR2jM0W_G6eH8OW39IuB9y9ArbBcCSnG7r0WdeZaJBh6Qf4MxLiuSKM3ZFCA"
+    }
+  },
+  "assertions": {
+    "header": {
+      "alg": "EdDSA",
+      "typ": "JWT"
+    },
+    "payload": {
+      "ucv": "0.10.0",
+      "iss": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "aud": "did:key:z6MktafZTREjJkvV5mfJxcLpNBoVPwDLhTuMg9ng7dY4zMAL",
+      "exp": null,
+      "cap": {
+        "mailto:alice@email.com": {
+          "email/send": [
+            {}
+          ]
+        }
+      },
+      "prf": [
+        "bafkreibvmi764cmtao4k2me2lksbf74djqplqjwqalahd4xfnty33rrpgm"
+      ]
+    },
+    "signature": "fwWnOgRSYryzvkvLyqYQZozrzKLIBfW4uGHKG6hR8Dygj1OOrDrcVXY88N7UQmj6O4ETXsrF99om5NK3QBB7Cw"
+  }
+}
+            </code></pre>
+            <p>
+                An implementation should verify the encoded UCAN is valid and well-formed. It may check the assertions,
+                but this not required for conformance.
+            </p>
+
+            <h3>Refute</h3>
+            <p>
+                Refute fixtures request an implementation refute a token and associated proof map.
+            </p>
+            <pre><code>{
+  "name": "UCAN header is missing typ field",
+  "task": "refute",
+  "inputs": {
+    "token": "eyJhbGciOiJFZERTQSJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.mFFFVP-hfpI16xLV657cFPbmHHCy-LRuXaLaCr0c07o5gi9DLMs0RS54ZOWwNcCVLPwp1howg_aa4tUk9_DuBw",
+    "proofs": {}
+  },
+  "assertions": {
+    "header": {
+      "alg": "EdDSA"
+    },
+    "payload": {
+      "ucv": "0.10.0",
+      "iss": "did:key:z6Mkk89bC3JrVqKie71YEcc5M1SMVxuCgNx6zLZ8SYJsxALi",
+      "aud": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+      "exp": null,
+      "cap": {}
+    },
+    "signature": "MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA"
+  },
+  "errors": [
+    "missingField"
+  ]
+}
+            </code></pre>
+            <p>
+                An implementation should refute the valditity of the encoded UCAN. Errors are provided to indicate the
+                expected error type.
+            </p>
+            <p>
+                Assertions indicate portions of the UCAN that are not malformed or missing. The assertions may be
+                checked, but this is not required for conformance.
+            </p>
+
+            <h3>Build</h3>
+            <p>
+                Build fixtures request an implementation build and encode a UCAN given a set of inputs.
+            </p>
+            <pre><code>{
+  "name": "UCAN has an expiration",
+  "task": "build",
+  "inputs": {
+    "version": "0.10.0",
+    "issuer_base64_key": "U+bzp2GaFQHso587iSFWPSeCzbSfn/CbNHEz7ilKRZ1UQMmMS7qq4UhTzKn3X9Nj/4xgrwa+UqhMOeo4Ki8JUw==",
+    "signature_scheme": "Ed25519",
+    "audience": "did:key:z6MkffDZCkCTWreg8868fG1FGFogcJj5X6PY93pPcWDn9bob",
+    "expiration": 9246211200,
+    "capabilities": {}
+  },
+  "outputs": {
+    "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6OTI0NjIxMTIwMCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.pkJxQke-FDVB1Eg_7Jh2socNBKgo6_0OF1XXRfRMazmpXBG37tScYGAzJKB2Z4RFvSBpbBu29Sozrv4GQLFrDg"
+  }
+}
+            </code></pre>
+            <p>
+                An implementation should produce a token matching the outputs <code>token</code>.
+            </p>
+
+            <h3>To CID</h3>
+            <p>
+                To CID fixtures request an implementation compute a CID when given a token and hasher.
+            </p>
+            <pre><code>{
+  "name": "Compute CID for token using SHA2-256 hasher",
+  "task": "toCID",
+  "inputs": {
+    "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJkaWQ6a2V5Ono2TWtmZkRaQ2tDVFdyZWc4ODY4ZkcxRkdGb2djSmo1WDZQWTkzcFBjV0RuOWJvYiIsImNhcCI6e30sImV4cCI6bnVsbCwiaXNzIjoiZGlkOmtleTp6Nk1razg5YkMzSnJWcUtpZTcxWUVjYzVNMVNNVnh1Q2dOeDZ6TFo4U1lKc3hBTGkiLCJ1Y3YiOiIwLjEwLjAifQ.MkBYb77b19pn8fCODCMYpqNTs5_neWBsNHKL73U68S1w3sj0RCllCoHq-Ih-rrFsNvNWSSyOQN3ZC_nN966BAA",
+    "hasher": "SHA2-256"
+  },
+  "outputs": {
+    "cid": "bafkreibvv43zt5dfzwr5ejms3oeb5rkazufzkvqs6v3izwwlj64jmrchci"
+  }
+}
+            </code></pre>
+            <p>
+                An implementation should compute a CID matching the outputs <code>cid</code>.
+            </p>
+        </section>
+    </article>
+</body>
+
+</html>
